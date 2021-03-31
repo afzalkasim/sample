@@ -4,33 +4,29 @@
         <div class="header">
             <h1>REGISTER</h1>
         </div>
-        <form class="form" id="form" #myForm="ngForm" >
+        <form class="form" id="form"  [formGroup]="reactiveForm" >
             <div class="form-control">
                 <label>Name :</label>
-                <input type="text" id="name" ngModel name="Name"
-                [ngClass]="{'form-con':true,
-                'is-invalid': !myForm.form.controls.Name?.valid && myForm.form.controls.Name?.touched,
-                'is-valid': !myForm.form.controls.Name?.valid && myForm.form.controls.Name?.touched}"
-                required
-                minlength="2">
-                <small id="fnHelp" 
-              *ngIf="!myForm.form.controls.Name?.valid && myForm.form.controls.Name?.touched" 
-              class="form-text custom-invalid-feedback" style="color: red;">Field is required</small>
+                <input type="text" id="name" 
+                formControlName="name">
+                <div **ngIf="name.invalid" >Field is required</div>
             </div><br>
             <div class="form-control">
             <label>Gender :</label> 
-                <input type="radio" ngModel name="gender" id="gender" value="male">Male 
-                <input type="radio" ngModel name="gender" id="gender" value="female"> Female
+                <input type="radio" formControlName="gender" id="gender" value="male">Male 
+                <input type="radio" formControlName="gender" id="gender" value="female"> Female
                 <div id="gendererror" style="color: red;"></div>
            </div><br>
            <div class="form-control">
             <label>Date of Birth :</label>
-            <input type="date" id="birthday" ngModel name="birthday">
+            <input type="date" id="birthday" 
+            formControlName="Dob">
             <div id="birthdayerror" style="color: red;"></div>
            </div><br>
            <div class="form-control">
             <label>City :</label>
-            <select name="City" id="city" ngModel name="city">
+            <select name="City" id="city" 
+            formControlName="city">
                 <option value="select">Select</option>
                 <option value="chennai">Chennai</option>
                 <option value="banglore">Banglore</option>
@@ -41,20 +37,23 @@
             </div><br>
             <div class="form-control">
                 <label>Email :</label>
-                <input type="email" id="email" ngModel name="email">
+                <input type="email" id="email" 
+                formControlName="email">
                 <div id="emailerror" style="color: red;"></div>
             </div><br>
             <div class="form-control">
                 <label>Address :</label>
-                <textarea id="address" rows="5" cols="30" ngModel name="address"></textarea>
+                <textarea id="address" rows="5" cols="30"
+                formControlName="address" ></textarea>
                 <div id="addresserror" style="color: red;"></div>
             </div><br>
             <div class="form-control">
                 <label>Contact Number :</label>
-                <input type="text" id="number" ngModel name="number">
+                <input type="text" id="number" 
+                formControlName="contactnumber">
                 <div id="numbererror" style="color: red;"></div>
             </div><br>
-            <button (click)="onSubmit(myForm)" type="submit">Submit</button>
+            <button (click)="onSubmit()" type="submit">Submit</button>
         </form>
     </div>
 </body> 
