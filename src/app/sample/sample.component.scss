@@ -8,6 +8,39 @@
     align-content: center;
      
 }
+input.ng-invalid {
+    border-color: red;
+    border-radius: 3px;
+}
+input.ng-valid {
+    border-color:greenyellow;
+    border-radius: 3px;
+}
+input[type="date"].ng-invalid{
+    border-color: red;
+    border-radius: 3px;
+}
+input[type="date"].ng-valid{
+    border-color: greenyellow;
+    border-radius: 3px;
+}
+select.ng-invalid{
+    border-color: red;
+    border-radius: 3px;
+}
+select.ng-valid{
+    border-color: greenyellow;
+    border-radius: 3px;
+}
+textarea.ng-invalid{
+    border-color: red;
+    border-radius: 3px;
+}
+textarea.ng-valid{
+    border-color: greenyellow;
+    border-radius: 3px;
+}
+
 .header {
     background-image: url("img2.jpg");
     background-size: cover;

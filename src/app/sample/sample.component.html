@@ -9,49 +9,50 @@
                 <label>Name :</label>
                 <input type="text" id="name" 
                 formControlName="name">
-                <div **ngIf="name.invalid" >Field is required</div>
+                <div *ngIf="reactiveForm.controls['name'].hasError('required')" style="color: red;">Enter your name</div>
+                <div *ngIf="reactiveForm.controls['name'].hasError('pattern')" style="color: red;">Enter only Alphabets</div>
             </div><br>
             <div class="form-control">
             <label>Gender :</label> 
                 <input type="radio" formControlName="gender" id="gender" value="male">Male 
                 <input type="radio" formControlName="gender" id="gender" value="female"> Female
-                <div id="gendererror" style="color: red;"></div>
+                <div *ngIf="reactiveForm.controls['gender'].hasError('required')" style="color: red;">Select the gender</div>
            </div><br>
            <div class="form-control">
             <label>Date of Birth :</label>
             <input type="date" id="birthday" 
             formControlName="Dob">
-            <div id="birthdayerror" style="color: red;"></div>
+            <div *ngIf="reactiveForm.controls['Dob'].hasError('required')" style="color: red;">Select the DateofBirth</div>
            </div><br>
            <div class="form-control">
             <label>City :</label>
             <select name="City" id="city" 
             formControlName="city">
-                <option value="select">Select</option>
                 <option value="chennai">Chennai</option>
                 <option value="banglore">Banglore</option>
                 <option value="trichy">Trichy</option>
                 <option value="mumbai">Mumbai</option>
             </select>
-            <div id="cityerror" style="color: red;"></div>
+            <div *ngIf="reactiveForm.controls['city'].hasError('required')" style="color: red;">Select the city</div>
             </div><br>
             <div class="form-control">
                 <label>Email :</label>
                 <input type="email" id="email" 
                 formControlName="email">
-                <div id="emailerror" style="color: red;"></div>
+                <div *ngIf="reactiveForm.controls['email'].hasError('required')" style="color: red;">Enter your email</div>
             </div><br>
             <div class="form-control">
                 <label>Address :</label>
                 <textarea id="address" rows="5" cols="30"
                 formControlName="address" ></textarea>
-                <div id="addresserror" style="color: red;"></div>
+                <div *ngIf="reactiveForm.controls['address'].hasError('required')" style="color: red;">Enter your address</div>
             </div><br>
             <div class="form-control">
                 <label>Contact Number :</label>
                 <input type="text" id="number" 
                 formControlName="contactnumber">
-                <div id="numbererror" style="color: red;"></div>
+                <div *ngIf="reactiveForm.controls['contactnumber'].hasError('required')" style="color: red;">Enter your number</div>
+                <div *ngIf="reactiveForm.controls['contactnumber'].hasError('pattern')" style="color: red;">Enter only numerical values</div>
             </div><br>
             <button (click)="onSubmit()" type="submit">Submit</button>
         </form>
