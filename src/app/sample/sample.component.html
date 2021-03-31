@@ -1,0 +1,61 @@
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>REGISTER</h1>
+        </div>
+        <form class="form" id="form" #myForm="ngForm" >
+            <div class="form-control">
+                <label>Name :</label>
+                <input type="text" id="name" ngModel name="Name"
+                [ngClass]="{'form-con':true,
+                'is-invalid': !myForm.form.controls.Name?.valid && myForm.form.controls.Name?.touched,
+                'is-valid': !myForm.form.controls.Name?.valid && myForm.form.controls.Name?.touched}"
+                required
+                minlength="2">
+                <small id="fnHelp" 
+              *ngIf="!myForm.form.controls.Name?.valid && myForm.form.controls.Name?.touched" 
+              class="form-text custom-invalid-feedback" style="color: red;">Field is required</small>
+            </div><br>
+            <div class="form-control">
+            <label>Gender :</label> 
+                <input type="radio" ngModel name="gender" id="gender" value="male">Male 
+                <input type="radio" ngModel name="gender" id="gender" value="female"> Female
+                <div id="gendererror" style="color: red;"></div>
+           </div><br>
+           <div class="form-control">
+            <label>Date of Birth :</label>
+            <input type="date" id="birthday" ngModel name="birthday">
+            <div id="birthdayerror" style="color: red;"></div>
+           </div><br>
+           <div class="form-control">
+            <label>City :</label>
+            <select name="City" id="city" ngModel name="city">
+                <option value="select">Select</option>
+                <option value="chennai">Chennai</option>
+                <option value="banglore">Banglore</option>
+                <option value="trichy">Trichy</option>
+                <option value="mumbai">Mumbai</option>
+            </select>
+            <div id="cityerror" style="color: red;"></div>
+            </div><br>
+            <div class="form-control">
+                <label>Email :</label>
+                <input type="email" id="email" ngModel name="email">
+                <div id="emailerror" style="color: red;"></div>
+            </div><br>
+            <div class="form-control">
+                <label>Address :</label>
+                <textarea id="address" rows="5" cols="30" ngModel name="address"></textarea>
+                <div id="addresserror" style="color: red;"></div>
+            </div><br>
+            <div class="form-control">
+                <label>Contact Number :</label>
+                <input type="text" id="number" ngModel name="number">
+                <div id="numbererror" style="color: red;"></div>
+            </div><br>
+            <button (click)="onSubmit(myForm)" type="submit">Submit</button>
+        </form>
+    </div>
+</body> 
+<router-outlet></router-outlet>
